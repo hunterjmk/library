@@ -13,7 +13,7 @@
 
     <button class="btn new-book">New Book</button>
 
-    <dialog open>
+    <dialog id="dialog">
         <h2>Add New Book</h2>
 
         <form action="#" class="form">
@@ -34,7 +34,10 @@
                 <input type="text" id="status" placeholder="Have you read the book? Yes or no..." required>
             </div>
 
-            <button class="btn submit">Submit</button>
+            <div class="buttons">
+                <button class="btn submit">Submit</button>
+                <button class="btn cancel">Cancel</button>
+            </div>
         </form>
     </dialog>
 

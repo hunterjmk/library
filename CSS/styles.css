@@ -31,6 +31,12 @@ dialog {
     border-radius: 15px;
     padding: 3rem;
     font-size: 2rem;
+    background: white;
+}
+
+dialog::backdrop {
+    background: black;
+    opacity: 0.5;
 }
 
 dialog > h2 {
@@ -42,7 +48,7 @@ dialog > h2 {
     margin-bottom: 1.4rem;
 }
 
-.form div:last-of-type {
+.form div:nth-child(4) {
     margin-bottom: 3rem;
 }
 
@@ -65,4 +71,9 @@ dialog > h2 {
 
 .form button {
     padding: 1.5rem 7rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
 }
