@@ -11,6 +11,7 @@ function Book(title, author, numberOfPages, status) {
 
 // console.table(typeof theHobbit);
 
+const form = document.querySelector('.form');
 const addBtn = document.querySelector('.new-book');
 const submitBtn = document.querySelector('.submit');
 const cancelBtn = document.querySelector('.cancel');
@@ -22,4 +23,14 @@ addBtn.addEventListener('click', () => {
 
 cancelBtn.addEventListener('click', () => {
     modal.close();
+})
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let formData = new FormData(e.target);
+
+    const obj = Object.fromEntries(formData);
+
+    console.table(obj);
 })

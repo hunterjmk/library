@@ -45,15 +45,11 @@ dialog > h2 {
 }
 
 .form > div {
-    margin-bottom: 1.4rem;
+    margin-bottom: 2rem;
 }
 
 .form div:nth-child(4) {
     margin-bottom: 3rem;
-}
-
-.form label {
-    margin-right: 2rem;
 }
 
 .form input {
