@@ -1,4 +1,4 @@
-const mlibrary = [];
+const mylibrary = [];
 
 function Book(title, author, numberOfPages, status) {
     this.title = title;
@@ -6,6 +6,13 @@ function Book(title, author, numberOfPages, status) {
     this.numberOfPages = numberOfPages;
     this.status = status;
 }
+
+function addBookToLibrary(object) {
+    const book = new Book(object.title, object.author, object.pageNumber, object.status);
+
+    mylibrary.push(book);;
+}
+
 
 // const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295 pages', 'Read');
 
@@ -28,9 +35,10 @@ cancelBtn.addEventListener('click', () => {
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    let formData = new FormData(e.target);
+    const formData = new FormData(e.target);
 
     const obj = Object.fromEntries(formData);
 
+    addBookToLibrary(obj);
     console.table(obj);
 })
