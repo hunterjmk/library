@@ -7,6 +7,6 @@ function Book(title, author, numberOfPages, status) {
     this.status = status;
 }
 
-const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295 pages', 'Read');
+// const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295 pages', 'Read');
 
-console.table(typeof theHobbit);
+// console.table(typeof theHobbit);
