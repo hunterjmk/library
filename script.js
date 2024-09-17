@@ -19,6 +19,7 @@ function addBookToLibrary(object) {
 // console.table(typeof theHobbit);
 
 const form = document.querySelector('.form');
+const inputs = document.querySelectorAll('input');
 const addBtn = document.querySelector('.new-book');
 const submitBtn = document.querySelector('.submit');
 const cancelBtn = document.querySelector('.cancel');
@@ -40,5 +41,9 @@ form.addEventListener('submit', (e) => {
     const obj = Object.fromEntries(formData);
 
     addBookToLibrary(obj);
+
+    for (let input of inputs) {
+        input.value = '';   
+    };
     console.table(obj);
 })
