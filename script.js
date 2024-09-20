@@ -1,4 +1,25 @@
-const mylibrary = [];
+const book1 = {
+    title: 'The Hobbit',
+    author: 'J.R.R Tolkien',
+    pageNumber: '255',
+    status: 'Yes'
+};
+
+const book2 = {
+    title: 'The Crime',
+    author: 'J.R.R Tolkien',
+    pageNumber: '255',
+    status: 'Yes'
+};
+
+const book3 = {
+    title: 'The Silent',
+    author: 'J.R.R Tolkien',
+    pageNumber: '255',
+    status: 'Yes'
+};
+
+const mylibrary = [book1, book2, book3];
 
 function Book(title, author, numberOfPages, status) {
     this.title = title;
@@ -10,8 +31,51 @@ function Book(title, author, numberOfPages, status) {
 function addBookToLibrary(object) {
     const book = new Book(object.title, object.author, object.pageNumber, object.status);
 
-    mylibrary.push(book);;
+    mylibrary.push(book);
+    displayBook(mylibrary);
 }
+
+const displayContainer = document.querySelector('.display');
+let submitted = false;
+
+
+function createDisplay(objectBook) {
+    const card = document.createElement('div');
+    const title = document.createElement('h2');
+    const line = document.createElement('hr');
+    const authorPar = document.createElement('p');
+    const pagePar = document.createElement('p');
+    const statusPar = document.createElement('p');
+
+    title.textContent = objectBook.title;
+    authorPar.textContent = 'By ' + objectBook.author;
+    pagePar.textContent = 'Number of pages: ' + objectBook.numberOfPages;
+    statusPar.textContent = objectBook.status;
+
+    card.append(title, line, authorPar, pagePar, statusPar);
+
+    displayContainer.appendChild(card);
+}
+
+function displayBook(arr) {
+    let index = arr.length;
+    let bookToDisplay;
+
+   
+    let content = displayContainer.textContent;
+
+    if (content == '' && index > 0) {
+        arr.forEach(book => {
+            createDisplay(book);
+        });
+    } else if (submitted){
+        bookToDisplay = arr[index - 1];
+        createDisplay(bookToDisplay);
+        submitted = false;
+    }
+}
+
+displayBook(mylibrary);
 
 
 // const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295 pages', 'Read');
@@ -29,7 +93,8 @@ addBtn.addEventListener('click', () => {
     modal.showModal();
 });
 
-cancelBtn.addEventListener('click', () => {
+cancelBtn.addEventListener('click', (e) => {
+    // e.preventDefault();
     modal.close();
 })
 
@@ -40,10 +105,12 @@ form.addEventListener('submit', (e) => {
 
     const obj = Object.fromEntries(formData);
 
+    
+    submitted = true;
     addBookToLibrary(obj);
 
     for (let input of inputs) {
         input.value = '';   
     };
     console.table(obj);
-})
+});
