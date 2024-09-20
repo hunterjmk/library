@@ -120,6 +120,10 @@ dialog > h2 {
     font-size: 1.7rem;
 }
 
+.status {
+    text-transform: capitalize;
+}
+
 .card-btn {
     width: 260px;
     padding: 2rem 0;

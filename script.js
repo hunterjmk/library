@@ -72,6 +72,7 @@ function createDisplay(objectBook) {
 
     displayContainer.appendChild(card);
     deleteCard(card, removeBtn, objectBook);
+    toggleStatus(toggleBtn, objectBook, statusPar);
 }
 
 function displayBook(arr) {
@@ -138,6 +139,18 @@ function deleteCard(bookCard, deleteBtn, book) {
         removeFromArray(book);
     });
 };
+
+function toggleStatus(toggleBtn, obj, toggleTarget) {
+    toggleBtn.addEventListener('click', () => {
+        if (obj.status == 'Yes' || obj.status == 'yes') {
+            obj.status = 'No';
+            toggleTarget.innerHTML = 'Has it been read: <strong>' + obj.status + '</strong>';
+        } else if (obj.status == 'No' || obj.status == 'no') {
+            obj.status = 'Yes';
+            toggleTarget.innerHTML = 'Has it been read: <strong>' + obj.status + '</strong>';
+        }
+    })
+}
 
 function removeFromArray(obj) {
     let index = mylibrary.indexOf(obj);
