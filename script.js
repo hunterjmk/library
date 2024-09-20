@@ -37,6 +37,7 @@ function addBookToLibrary(object) {
 
 const displayContainer = document.querySelector('.display');
 let submitted = false;
+let deleted = false;
 
 
 function createDisplay(objectBook) {
@@ -70,6 +71,7 @@ function createDisplay(objectBook) {
     card.append(title, line, authorPar, pagePar, statusPar, toggleBtn, br, removeBtn);
 
     displayContainer.appendChild(card);
+    deleteCard(card, removeBtn, objectBook);
 }
 
 function displayBook(arr) {
@@ -109,7 +111,7 @@ addBtn.addEventListener('click', () => {
 });
 
 cancelBtn.addEventListener('click', (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     modal.close();
 })
 
@@ -129,3 +131,19 @@ form.addEventListener('submit', (e) => {
     };
     console.table(obj);
 });
+
+function deleteCard(bookCard, deleteBtn, book) {
+    deleteBtn.addEventListener('click', () => {
+        bookCard.remove();
+        removeFromArray(book);
+    });
+};
+
+function removeFromArray(obj) {
+    let index = mylibrary.indexOf(obj);
+
+    mylibrary.splice(index, 1);
+
+    // console.log(index);
+    // console.table(mylibrary);
+};
