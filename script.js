@@ -46,21 +46,28 @@ function createDisplay(objectBook) {
     const authorPar = document.createElement('p');
     const pagePar = document.createElement('p');
     const statusPar = document.createElement('p');
+    const removeBtn = document.createElement('button');
+    const toggleBtn = document.createElement('button');
+    const br = document.createElement('br');
 
     card.classList.add('card');
     title.classList.add('title');
     authorPar.classList.add('author');
     pagePar.classList.add('pages');
     statusPar.classList.add('status');
+    removeBtn.classList.add('card-btn');
+    toggleBtn.classList.add('card-btn');
 
     title.textContent = objectBook.title;
     authorPar.textContent = 'By ' + objectBook.author;
     pagePar.innerHTML = 'Has it been read: <strong>' + objectBook.numberOfPages + '</strong>';
-
     statusPar.innerHTML = 'Has it been read: <strong>' + objectBook.status + '</strong>';
 
+    removeBtn.textContent = 'Delete Book';
+    toggleBtn.textContent = 'Toggle Read/Unread';
 
-    card.append(title, line, authorPar, pagePar, statusPar);
+
+    card.append(title, line, authorPar, pagePar, statusPar, toggleBtn, br, removeBtn);
 
     displayContainer.appendChild(card);
 }
