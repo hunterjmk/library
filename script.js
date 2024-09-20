@@ -1,21 +1,21 @@
 const book1 = {
     title: 'The Hobbit',
     author: 'J.R.R Tolkien',
-    pageNumber: '255',
+    numberOfPages: '255',
     status: 'Yes'
 };
 
 const book2 = {
     title: 'The Crime',
     author: 'J.R.R Tolkien',
-    pageNumber: '255',
+    numberOfPages: '255',
     status: 'Yes'
 };
 
 const book3 = {
     title: 'The Silent',
     author: 'J.R.R Tolkien',
-    pageNumber: '255',
+    numberOfPages: '255',
     status: 'Yes'
 };
 
@@ -47,10 +47,18 @@ function createDisplay(objectBook) {
     const pagePar = document.createElement('p');
     const statusPar = document.createElement('p');
 
+    card.classList.add('card');
+    title.classList.add('title');
+    authorPar.classList.add('author');
+    pagePar.classList.add('pages');
+    statusPar.classList.add('status');
+
     title.textContent = objectBook.title;
     authorPar.textContent = 'By ' + objectBook.author;
-    pagePar.textContent = 'Number of pages: ' + objectBook.numberOfPages;
-    statusPar.textContent = objectBook.status;
+    pagePar.innerHTML = 'Has it been read: <strong>' + objectBook.numberOfPages + '</strong>';
+
+    statusPar.innerHTML = 'Has it been read: <strong>' + objectBook.status + '</strong>';
+
 
     card.append(title, line, authorPar, pagePar, statusPar);
 

@@ -87,3 +87,35 @@ dialog > h2 {
     display: flex;
     justify-content: space-between;
 }
+
+.display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.card {
+    width: 300px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 2rem;
+    font-size: 1.5rem;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.author {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.status,
+.pages {
+    font-weight: 350;
+    font-size: 1.7rem;
+}
