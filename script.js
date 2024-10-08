@@ -21,11 +21,13 @@ const book3 = {
 
 const mylibrary = [book1, book2, book3];
 
-function Book(title, author, numberOfPages, status) {
-    this.title = title;
-    this.author = author;
-    this.numberOfPages = numberOfPages;
-    this.status = status;
+class Book {
+    constructor(title, author, numberOfPages, status) {
+        this.title = title;
+        this.author = author;
+        this.numberOfPages = numberOfPages;
+        this.status = status;
+    }
 }
 
 function addBookToLibrary(object) {
